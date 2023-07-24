@@ -1,4 +1,4 @@
-
+{% extends 'bases/base.html' %}
 
 <div class="card">
     
@@ -8,7 +8,7 @@
             <th>Quantidade</th>
             <th>Data</th>
         </tr>
-        {% for valor in valores %}
+        {% for materiais in materiais %}
             <tr class="linha">
                 <td width="10%">{{materiais.descricao}}</td>
                 <td>{{materiais.quantidade}}</td>

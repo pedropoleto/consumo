@@ -2,6 +2,7 @@ from django.shortcuts import render
 from estoque.models import Materiais
 from django.contrib import messages
 from django.contrib.messages import constants
+from django.http import HttpResponse
 
 
 def cadastro(request):
@@ -26,6 +27,5 @@ def cadastro(request):
 
 
 def visualizar(request):
-        materiais = Materiais.objects.all()
-        materiais_get = request.GET.get()
-        return render(request, 'visualiza_itens.html', {'materiais': materiais})
+        material = Materiais.objects.all()
+        return render(request, 'visualizar_itens.html', {''})
