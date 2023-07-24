@@ -1,0 +1,23 @@
+
+
+<div class="card">
+    
+    <table>
+        <tr>
+            <th>Descrição</th>
+            <th>Quantidade</th>
+            <th>Data</th>
+        </tr>
+        {% for valor in valores %}
+            <tr class="linha">
+                <td width="10%">{{materiais.descricao}}</td>
+                <td>{{materiais.quantidade}}</td>
+                <td>{{materiais.data}}</td>
+                <td>
+            </tr>
+        {% endfor %}
+
+    </table>
+    
+
+</div>
