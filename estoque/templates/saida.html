@@ -13,16 +13,12 @@
     <div class="col-md-4">
         <p class="fonte-destaque">Saida de material</p>
         <form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
-            <label>Item</label>
-            <select name="banco" class="form-select">
-                {{materiais}}
-                <option value="NU"></option>
-            </select>
             <br>
             <label>Empresa destino</label>
-            <select name="tipo" class="form-select">
-                <option value="pf">Pessoa física</option>
-                <option value="pj">Pessoa jurídica</option>
+            <select name="revenda" class="form-select">
+            {% for revendas in revenda %}
+                <option value="pf">{{revendas.nome}}</option>
+            {% endfor %}
             </select>
             <br>
             <label>Quantidade</label>

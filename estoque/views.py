@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from estoque.models import Materiais
+from estoque.models import Materiais, Revenda
 from django.contrib import messages
 from django.contrib.messages import constants
 from django.http import HttpResponse
@@ -32,5 +32,6 @@ def visualizar(request):
     
     
 def saida(request, pk):
+    revenda = Revenda.objects.all()
     materiais = Materiais.objects.get(pk=pk)
-    return render(request, 'saida.html', {'materiais': materiais})
+    return render(request, 'saida.html', {'materiais': materiais, 'revenda': revenda})
