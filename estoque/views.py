@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from estoque.models import Materiais
 from django.contrib import messages
 from django.contrib.messages import constants
@@ -23,9 +23,14 @@ def cadastro(request):
         itens.save()
         
         messages.add_message(request, constants.SUCCESS, 'Entrada realizada com sucesso!')
-    return render(request, 'cadastro.html')
+    return redirect('cadastro.html')
 
 
 def visualizar(request):
-        material = Materiais.objects.all()
-        return render(request, 'visualizar_itens.html', {''})
+        materiais = Materiais.objects.all()
+        return render(request, 'visualiza_itens.html', {'materiais': materiais})
+    
+    
+def saida(request, pk):
+    materiais = Materiais.objects.get(pk=pk)
+    return render(request, 'saida.html', {'materiais': materiais})

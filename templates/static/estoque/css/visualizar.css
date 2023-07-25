@@ -1,0 +1,30 @@
+table{
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+
+}
+
+.linha{
+    height: 40px;
+    background-color: #1C1A1A;
+    padding: 20px;
+}
+
+
+td, th{
+    padding: 20px;
+}
+
+tr{
+    background-color: #1C1A1A;
+
+}
+
+.saida{
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 10px;
+}

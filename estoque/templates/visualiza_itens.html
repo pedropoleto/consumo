@@ -1,23 +1,44 @@
 {% extends 'bases/base.html' %}
+{% load static %}
 
-<div class="card">
-    
-    <table>
-        <tr>
-            <th>Descrição</th>
-            <th>Quantidade</th>
-            <th>Data</th>
-        </tr>
-        {% for materiais in materiais %}
-            <tr class="linha">
-                <td width="10%">{{materiais.descricao}}</td>
-                <td>{{materiais.quantidade}}</td>
-                <td>{{materiais.data}}</td>
-                <td>
+{% block 'head' %}
+    <link href="{% static 'estoque/css/cadastro.css' %}" rel="stylesheet">
+    <link href="{% static 'estoque/css/visualizar.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block 'body' %}
+<br>
+<br>
+<br>
+<br>
+
+<div class="container">
+    <div class="card">
+        
+        <table>
+            <tr>
+                <th>Descrição</th>
+                <th>Quantidade</th>
+                <th>Data</th>
+                <th>Ação</th>
             </tr>
-        {% endfor %}
+            {% for material in materiais %}
+                <tr class="linha">
+                    <td width="10%">{{material.descricao}}</td>
+                    <td>{{material.quantidade}}</td>
+                    <td>{{material.data}}</td>
+                    <td>
+                        <a href="/estoque/saida/{{material.id}}">
+                            <button type="button" class="saida">Efetuar saida</button>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
 
-    </table>
-    
-
+        </table>
+        
+    </div>
 </div>
+
+
+{% endblock %}
