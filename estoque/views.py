@@ -23,7 +23,7 @@ def cadastro(request):
         itens.save()
         
         messages.add_message(request, constants.SUCCESS, 'Entrada realizada com sucesso!')
-    return redirect('cadastro.html')
+    return redirect('cadastro')
 
 
 def visualizar(request):
