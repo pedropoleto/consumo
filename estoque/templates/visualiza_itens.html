@@ -13,6 +13,13 @@
 <br>
 
 <div class="container">
+    <br>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert {{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    <br>
     <div class="card">
         
         <table>

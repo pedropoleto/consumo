@@ -51,7 +51,12 @@ def saida_material(request, pk):
         )
         
         saidas.save()
+            
+        materiais = Materiais.objects.get(id=materiais.pk)
         
-        revenda = Revenda.objects.get(id=revenda)
+        materiais.quantidade -= int(quantidade)
+        messages.add_message(request, constants.SUCCESS, 'Saida realizada com sucesso!')
         
-        return HttpResponse(revenda)
+        materiais.save()
+        
+        return redirect('visualizar')
