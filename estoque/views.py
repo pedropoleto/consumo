@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from estoque.models import Materiais, Revenda
+from estoque.models import Materiais, Revenda, Saida
 from django.contrib import messages
 from django.contrib.messages import constants
 from django.http import HttpResponse
@@ -31,7 +31,27 @@ def visualizar(request):
         return render(request, 'visualiza_itens.html', {'materiais': materiais})
     
     
-def saida(request, pk):
-    revenda = Revenda.objects.all()
-    materiais = Materiais.objects.get(pk=pk)
-    return render(request, 'saida.html', {'materiais': materiais, 'revenda': revenda})
+def saida_material(request, pk):
+    if request.method == 'GET':
+        revenda = Revenda.objects.all()
+        materiais = Materiais.objects.get(pk=pk)
+        return render(request, 'saida.html', {'materiais': materiais, 'revenda': revenda})
+    
+    elif request.method == 'POST':
+        materiais = Materiais.objects.get(pk=pk)
+        quantidade = request.POST.get('quantidade')
+        revenda = request.POST.get('revenda')
+        data = request.POST.get('data')
+        
+        saidas = Saida(
+            materiais_id = materiais.pk,
+            quantidade = quantidade,
+            revenda_id = revenda,
+            data = data,
+        )
+        
+        saidas.save()
+        
+        revenda = Revenda.objects.get(id=revenda)
+        
+        return HttpResponse(revenda)

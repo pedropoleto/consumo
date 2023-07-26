@@ -5,5 +5,5 @@ from . import views
 urlpatterns = [
     path('cadastro/', views.cadastro, name='cadastro'),
     path('visualizar/', views.visualizar, name='visualizar'),
-    path('saida/<int:pk>/', views.saida, name='saida')
+    path('saida_material/<int:pk>/', views.saida_material, name='saida_material')
 ]

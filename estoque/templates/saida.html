@@ -17,17 +17,17 @@
             <label>Empresa destino</label>
             <select name="revenda" class="form-select">
             {% for revendas in revenda %}
-                <option value="pf">{{revendas.nome}}</option>
+                <option value="{{revendas.id}}">{{revendas.nome}}</option>
             {% endfor %}
             </select>
             <br>
             <label>Quantidade</label>
-            <input type="number" name="valor" class="form-control" placeholder="">
+            <input name="quantidade" class="form-control" placeholder="quantidade">
             <br>
-            <input type="file" placeholder="Ícone" name="icone" required>
+            <label>Data</label>
+            <input name="data" type="date" class="form-control">
             <br>
-            <br>
-            <input style="width: 80%" type="submit" class="botao-principal" value="Aplicar">
+            <input style="width: 60%" type="submit" class="botao-principal" value="Aplicar">
         </form>
     </div>
 </div>
